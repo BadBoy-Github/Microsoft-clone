@@ -13,6 +13,16 @@
     color: black;
 }
 
+.link-deco {
+    width: fit-content;
+    border-bottom: 1px solid transparent;
+    cursor: pointer;
+}
+
+.link-deco:hover {
+    border-bottom: 1px solid #006fc9;
+}
+
 /* Header */
 .header {
     background-color: #006fc9;
@@ -310,7 +320,6 @@
     margin-top: 10px;
     border-radius: 10px;
     display: grid;
-    grid-template-rows: 20% 80%;
     overflow: hidden;
     box-shadow: 0px 0px 8px 1px rgba(128, 128, 128, 0.526);
     margin-left: 20px;
@@ -319,18 +328,37 @@
 
 .card-ms365 {
     height: 250px;
+    grid-template-rows: 20% 80%;
 }
 
 .card-onedrive {
     height: 280px;
+    grid-template-rows: 18% 82%;
 }
 
 .card-xbox {
-    height: 280px
+    height: 300px;
+    grid-template-rows: 18% 82%;
 }
 
 .card-device {
-    height: 280px;
+    height: 310px;
+    grid-template-rows: 18% 82%;
+}
+
+.card-privacy {
+    height: 310px;
+    grid-template-rows: 18% 82%;
+}
+
+.card-security {
+    height: 460px;
+    grid-template-rows: 12% 88%;
+}
+
+.card-payment {
+    height: 160px;
+    grid-template-rows: 34% 66%;
 }
 
 .card-top {
@@ -408,7 +436,15 @@
     align-items: center;
 }
 
+.card-bot-parent-bot {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-rows: 80% 20%;
+}
+
 .card-bot-child {
+    height: 100%;
     width: 91%;
     margin-left: 7%;
     display: flex;
@@ -552,7 +588,25 @@
     width: 40%;
     border-top-right-radius: 3px;
     border-bottom-right-radius: 3px;
+    margin-left: -10px;
+    animation-name: wave;
+    animation-iteration-count: infinite;
+    animation-duration: 4s;
+    animation-timing-function: ease-in-out;
 }
+
+@keyframes wave {
+    0% {
+        transform: translateX(-10px);
+    }
+    50% {
+        transform: translateX(10px)
+    }
+    100% {
+        transform: translateX(-10px);
+    }
+}
+
 
 .designer-color,
 .loop-color {
@@ -560,6 +614,10 @@
     width: 3px;
     border-top-right-radius: 3px;
     border-bottom-right-radius: 3px;
+    animation-timing-function: ease-in-out;
+        animation-name: wave;
+        animation-iteration-count: infinite;
+        animation-duration: 4s;
 }
 
 .designer-color {
@@ -584,6 +642,7 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
+    position: relative;
 }
 
 .card-bot-chart-left {
@@ -594,16 +653,38 @@
     align-items: center;
 }
 
+.color-chart-parent {
+    position: absolute;
+    left: 0px;
+    top: 11px;
+}
+
 .card-bot-chart-left-color {
-    height: 56%;
-    width: 5px;
+    /* height: 56%;
+    width: 5px; */
     border-radius: 3px;
+    animation-name: bubble;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes bubble {
+    0% {
+        height: 10px;
+        width: 4px;
+    } 50% {
+        height: 4px;
+        width: 10px;
+    } 100% {
+        height: 10px;
+        width: 4px;
+    }
 }
 
 .card-bot-chart-left-para {
     color: rgb(78, 78, 78);
     font-size: 13px;
-    margin-left: 6px;
+    margin-left: 20px;
 }
 
 .card-bot-chart-right {
@@ -652,10 +733,10 @@
     height: 100%;
     display: grid;
     grid-template-columns: 50% 50%;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.378);
 }
 
 .device-bot-child-left {
-    background-color: rgba(255, 0, 0, 0.289);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -668,7 +749,7 @@
 }
 
 .device-bot-child-left-icon-img {
-    width: 140px;
+    width: 160px;
 }
 
 .device-bot-child-left-text {
@@ -677,26 +758,448 @@
     justify-content: center;
     align-items: start;
     gap: 12px;
-    margin-left: 14px;
-}
-
-.device-bot-child-left-text-para {
-    font-size: 18px;
-    color: rgb(78, 78, 78);
+    margin-left: 20px;
 }
 
 .device-bot-child-left-text-heading {
-    font-size: 30px;
+    font-size: 24px;
     font-weight: 500;
+}
+
+.device-bot-child-left-text-para {
+    font-size: 14px;
+    color: rgb(78, 78, 78);
 }
 
 .device-bot-child-left-text-link {
     color: #0064b5;
     font-size: 14px;
-    border-bottom: 1px solid #0064b5;
 
 }
 
 .device-bot-child-right {
-    background-color: rgba(0, 0, 255, 0.295);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.device-bot-child-right-icon {
+    border: 3px solid #0064b5;
+    border-radius: 100%;
+    height: 30px;
+    width: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: scale(1.4,1.4);
+}
+
+.device-bot-child-right-icon-img {
+    width: 26px;
+    height: 26px;
+}
+
+.device-bot-child-right-link {
+    margin-top: 10px;
+    color: #0064b5;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.device-bot-child-right-para {
+    color: rgb(78, 78, 78);
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.device-bot-child-bot {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.device-bot-child-bot-para {
+    color: rgb(78, 78, 78);
+    font-size: 14px;
+    font-weight: 400;
+    margin-left: 22px;
+}
+
+.device-bot-child-bot-link {
+    color: #0064b5;
+    font-size: 14px;
+    font-weight: 400;
+    margin-left: 22px;
+}
+
+.card-bot-parent-privacy {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-rows: 80% 20%;
+}
+
+.card-bot-parent-privacy-top {
+    width: 100%;
+    height: 100%;
+    border-bottom: 1px solid rgba(100, 100, 100, 0.221);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-bot-parent-privacy-top-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    gap: 10px;
+    margin-left: 60px;
+}
+
+.card-bot-parent-privacy-top-left-heading {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.card-bot-parent-privacy-top-left-para {
+    font-size: 14px;
+    font-weight: 400;
+    color: rgb(78, 78, 78);
+    width: 90%;
+}
+
+.card-bot-parent-privacy-top-left-btn {
+    font-size: 14px;
+    font-weight: 500;
+    color: white;
+    background-color: #006fc9;
+    padding: 6px 14px;
+    border-radius: 4px;
+    transition-duration: 0.2s;
+}
+
+.card-bot-parent-privacy-top-left-btn:hover {
+    background-color: #0064b5;
+}
+
+
+
+.card-bot-parent-privacy-top-right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.card-bot-parent-privacy-bot {
+    width: 100%;
+    height: 100%;
+}
+
+.card-bot-parent-security {
+    display: grid;
+    grid-template-rows: 50% 50%;
+    width: 100%;
+    height: 100%;
+}
+
+.card-bot-parent-security-top {
+    border-bottom: 1px solid rgba(100, 100, 100, 0.221);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-bot-parent-security-bot {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-rows: 25% 25% 25% 25%;
+}
+
+.card-bot-parent-security-bot-bottom {
+    width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: start;
+        align-items: center;
+}
+
+.card-bot-parent-security-bot-component {
+    border-bottom: 1px solid rgba(100, 100, 100, 0.121);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-bot-parent-security-bot-component:hover {
+    background-color: #ececec;
+}
+
+.card-bot-parent-security-bot-component-left {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 20px;
+    margin-left: 22px;
+}
+
+.card-bot-parent-security-bot-component-left-img {
+    width: 20px;
+    height: 20px;
+}
+
+.card-bot-parent-security-bot-component-left-para {
+    font-size: 14px;
+    font-weight: 400;
+    color: rgb(78, 78, 78);
+}
+
+.card-bot-parent-security-bot-component-right-img {
+    margin-right: 22px;
+    width: 24px;
+    height: 24px;
+    transform: rotate(90deg);
+}
+
+.card-bot-parent-payment {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-rows: 54% 46%;
+}
+
+.card-bot-parent-payment-top {
+    border-bottom: 1px solid rgba(100, 100, 100, 0.121);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.card-bot-parent-payment-top-left {
+    color: rgb(78, 78, 78);
+    margin-left: 22px;
+}
+
+.card-bot-parent-payment-top-right {
+    color: #006fc9;
+    margin-right: 22px;
+
+}
+
+.card-bot-parent-payment-bot {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.card-bot-card {
+    height: 900px;
+    width: 84.4%;
+    margin-top: 22px;
+    margin-left: 22px;
+    display: grid;
+    grid-template-columns: 31% 31% 31%;
+    grid-gap: 3.5%;
+}
+
+.card-bot-card-parent {
+    background-color: white;
+    height: 430px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 8px 1px rgba(128, 128, 128, 0.566);
+    cursor: pointer;
+    display: grid;
+    grid-template-rows: 10% 90%;
+    overflow: hidden;
+}
+
+.card-bot-card-parent:hover img {
+    transform: scale(1.1,1.1);
+}
+
+.card-bot-card-parent-top {
+    border-bottom: 1px solid rgba(100, 100, 100, 0.321);
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.card-bot-card-parent-top-heading {
+    font-size: 16px;
+    font-weight: 500;
+    margin-left: 22px;
+}
+
+.card-bot-card-parent-bot {
+    display: grid;
+    grid-template-rows: 60% 40%;
+}
+
+.card-bot-card-parent-bot-top {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-bot-card-parent-bot-top-img2,
+.card-bot-card-parent-bot-top-img3 {
+    width: 300px;
+    height: 240px;
+    border-radius: 20px;
+    transition-duration: 0.5s;
+}
+
+.card-bot-card-parent-bot-top-img1 {
+    height: 180px;
+    width: 180px;
+    border-radius: 20px;
+    transition-duration: 0.5s;
+}
+
+.card-bot-card-parent-bot-top-img4 {
+    height: 150px;
+    width: 150px;
+    border-radius: 20px;
+    transition-duration: 0.5s;
+}
+
+.card-bot-card-parent-bot-top-img5 {
+    width: 56%;
+    transition-duration: 0.5s;
+}
+
+.card-bot-card-parent-bot-bot {
+    display: grid;
+    grid-template-rows: 75% 25%;
+
+}
+
+.card-bot-card-parent-bot-bot-top {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    gap: 6px;
+}
+
+.card-bot-card-parent-bot-bot-top-heading {
+    font-size: 16px;
+    font-weight: 500;
+    margin-left: 22px;
+}
+
+.card-bot-card-parent-bot-bot-top-para {
+    font-size: 13px;
+    font-weight: 400;
+    width: 80%;
+    margin-left: 22px;
+    color: rgb(78, 78, 78);
+}
+
+
+.card-bot-card-parent-bot-bot-bot {
+    display: flex;
+    justify-content: start;
+    align-items: start;
+}
+
+.card-bot-card-parent-bot-bot-bot-para {
+    margin-left: 22px;
+    font-size: 14px;
+    color: #006fc9;
+}
+
+
+
+/* Footer */
+
+.footer {
+    height: 100px;
+    margin-left: 22px;
+    width: 84.4%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-last-child-left {
+    height: 100%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 18px;
+}
+
+.footer-last-child-left-globe {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    cursor: pointer;
+}
+
+.footer-last-child-left-globe:hover .footer-last-child-left-para,
+.footer-last-child-left-privacy:hover .footer-last-child-left-para {
+    border-bottom: 1px solid rgb(73, 73, 73);
+}
+
+.footer-last-child-left-globe-img {
+    width: 20px;
+}
+
+.footer-last-child-left-para {
+    font-size: 11px;
+    margin-left: 6px;
+    border-bottom: 1px solid transparent;
+}
+
+.footer-last-child-left-para-outer {
+    font-size: 11px;
+    margin-left: 6px;
+    border-bottom: 1px solid transparent;
+    cursor: pointer;
+}
+
+.footer-last-child-left-para-outer:hover {
+    border-bottom: 1px solid rgb(73, 73, 73);
+}
+
+.footer-last-child-left-privacy {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    cursor: pointer;
+}
+
+.footer-last-child-left-privacy-img {
+    width: 30px;
+}
+
+.footer-last-child-right {
+    height: 100%;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap: 18px;
+}
+
+.footer-last-child-right-para {
+    font-size: 11px;
+    border-bottom: 1px solid transparent;
+    cursor: pointer;
+}
+
+.footer-last-child-right-para:hover {
+    border-bottom: 1px solid rgb(73, 73, 73);
 }
