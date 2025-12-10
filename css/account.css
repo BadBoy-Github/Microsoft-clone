@@ -73,6 +73,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    border: 1px solid transparent;
+    border-radius: 100%;
+    padding: 4px;
+    transition-duration: 1s;
+}
+
+.header-right-help:hover {
+    border: 1px solid white;
 }
 
 .header-right-help-img {
